@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package mx.itson.floreria.persistencia;
 
 import java.sql.Connection;
@@ -22,13 +19,14 @@ public class EmpresaDAO {
         try {
             Connection connection = Conexion.obtener();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT id, nombre, direccion, telefono FROM empresa");
+            ResultSet resultSet = statement.executeQuery("SELECT id, nombre, direccion, telefono, totalTipo FROM empresa");
             while (resultSet.next()) {
                 Empresa e = new Empresa();
                 e.setId(resultSet.getInt(1));
                 e.setNombre(resultSet.getString(2));
                 e.setDireccion(resultSet.getString(3));
                 e.setTelefono(resultSet.getString(4));
+                e.setTotalTipo(resultSet.getInt(5));
                 empresas.add(e);
             }
         } catch (Exception ex) {

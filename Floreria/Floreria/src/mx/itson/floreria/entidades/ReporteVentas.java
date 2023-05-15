@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package mx.itson.floreria.entidades;
 
 /**
@@ -11,8 +8,8 @@ package mx.itson.floreria.entidades;
 public class ReporteVentas {
 
     private int id;
-    private RegistroVentas registroVen;
-    private int total;
+    private Venta registroVen;
+    private double total;
 
     public int getId() {
         return id;
@@ -22,19 +19,19 @@ public class ReporteVentas {
         this.id = id;
     }
 
-    public RegistroVentas getRegistroVen() {
+    public Venta getRegistroVen() {
         return registroVen;
     }
 
-    public void setRegistroVen(RegistroVentas registroVen) {
+    public void setRegistroVen(Venta registroVen) {
         this.registroVen = registroVen;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
     
