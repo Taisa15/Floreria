@@ -1,4 +1,3 @@
-
 package mx.itson.floreria.persistencia;
 
 import java.sql.Connection;
@@ -9,10 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import mx.itson.floreria.entidades.Empresa;
 
-
-
 public class EmpresaDAO {
-    
+
     public static List<Empresa> obtenerTodos() {
         List<Empresa> empresas = new ArrayList<>();
 
@@ -34,18 +31,19 @@ public class EmpresaDAO {
         }
         return empresas;
     }
-    
-    public static boolean guardar(String nombre, String direccion, String telefono) {
+
+    public static boolean guardar(String nombre, String direccion, String telefono, int totalTipo) {
         boolean resultado = false;
- 
-    
+
         try {
             Connection connection = Conexion.obtener();
-            String consulta = "INSERT INTO empresa (nombre, direccion, telefono) VALUES (?, ?, ?)";
+            String consulta = "INSERT INTO empresa (nombre, direccion, telefono, totalTipo) VALUES (?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(consulta);
             statement.setString(1, nombre);
             statement.setString(2, direccion);
             statement.setString(3, telefono);
+            statement.setInt(4, totalTipo);
+
             statement.execute();
 
             resultado = statement.getUpdateCount() == 1;
@@ -54,8 +52,8 @@ public class EmpresaDAO {
         }
         return resultado;
     }
-    
-    public static boolean editar(int id , String nombre, String direccion, String telefono) {
+
+    public static boolean editar(int id, String nombre, String direccion, String telefono) {
         boolean resultado = false;
 
         try {
@@ -66,8 +64,7 @@ public class EmpresaDAO {
             statement.setString(1, nombre);
             statement.setString(2, direccion);
             statement.setString(3, telefono);
-           
-            
+
             statement.executeUpdate();
             resultado = statement.getUpdateCount() == 1;
         } catch (Exception ex) {
@@ -76,7 +73,7 @@ public class EmpresaDAO {
         return resultado;
 
     }
-    
+
     public static boolean eliminar(int id) {
         boolean resultado = false;
         try {
@@ -91,5 +88,5 @@ public class EmpresaDAO {
         }
         return resultado;
     }
-    
+
 }
