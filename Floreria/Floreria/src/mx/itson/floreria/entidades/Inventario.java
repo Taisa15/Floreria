@@ -11,7 +11,7 @@ package mx.itson.floreria.entidades;
 public class Inventario {
 
     private int id;
-    private Flores flore;
+    private Flores flores;
     private int cantidadExistente;
 
     public int getId() {
@@ -23,11 +23,11 @@ public class Inventario {
     }
 
     public Flores getFlores() {
-        return flore;
+        return flores;
     }
 
     public void setFlores(Flores flores) {
-        this.flore = flores;
+        this.flores = flores;
     }
 
     public int getCantidadExistente() {

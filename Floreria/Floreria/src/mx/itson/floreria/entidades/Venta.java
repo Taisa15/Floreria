@@ -19,6 +19,7 @@ public class Venta {
     private Flores flores;
     private Usuario usuario;
     private double descuento;
+    private double precioTotal;
 
     public int getId() {
         return id;
@@ -76,8 +77,24 @@ public class Venta {
         this.descuento = descuento;
     }
 
+    public double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(double precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
   
-    
+    public Venta(int id, Date fecha, int cantidadVendida, double precio, Flores flores, double descuento, double precioTotal) {
+    this.id = id;
+    this.fecha = fecha;
+    this.cantidadVendida = cantidadVendida;
+    this.precio = precio;
+    this.flores = flores;
+    this.descuento = descuento;
+    this.precioTotal = precioTotal;
+    }
     
     
 }

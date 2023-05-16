@@ -86,6 +86,11 @@ public class Flores {
         this.cantidad = cantidad;
     }
     
-     
+   @Override  
+   public String toString(){
+   
+       return this.nombre;
+       
+   }
     
 }
